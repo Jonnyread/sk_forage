@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SkForage</title>
+  <title>Wild Forager</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= render "layouts/header" %>
 	<% if has_order? %>
-		<p style="border:1px solid black;padding:10px;">
+		<p class="text-center">
 		  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
-		  <%= number_to_currency current_order.total_before_tax %>.
+		  <%= number_to_currency current_order.total_before_tax %>.  <%= link_to "Checkout", checkout_path %>
 		</p>
 	<% end %>
 
 <%= yield %>
 
-<%= link_to "Checkout", checkout_path %>
-<%= link_to "View basket", basket_path %>
 </body>
 </html>

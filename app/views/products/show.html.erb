@@ -1,17 +1,99 @@
-<h2><%= @product.name %></h2>
+<main>
+	
+	<!-- ============================================================= SECTION – PORTFOLIO POST ============================================================= -->
+	
+	<section id="portfolio-post">
+		<div class="container inner-top-md">
+			<div class="row">
+				
+				<div class="col-md-8">
+					<div id="owl-work" class="owl-carousel owl-inner-pagination owl-inner-nav owl-ui-md">
+						
+						<div class="item">
+							<figure>
+								<% if @product.default_image %>
+								  <%= image_tag @product.default_image.path %>
+								<% end %>
+							</figure>
+						</div><!-- /.item -->
+						
+						<div class="item">
+							<figure>
+								<% if @product.default_image %>
+								  <%= image_tag @product.default_image.path %>
+								<% end %>
+							</figure>
+						</div><!-- /.item -->
+						
+					</div><!-- /.owl-carousel -->
+				</div><!-- /.col -->
+				
+				<div class="col-md-4 inner-left-sm">
+					<header>
+						<h2><%= @product.name %></h2>
+						<p class="text-small"><%= @product.short_description %></p>
+						<p><%= simple_format @product.description %></p>
+						<p>
+						  <b><%= number_to_currency @product.price %></b>
+						  <%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
+						</p>
+					
+						<ul class="item-details inner-top-xs outer-top-xs border-top">
+							<li class="date">May 23, 2014</li>
+							<li class="categories">Identity, Interactive, Print</li>
+							<li class="client">Creative Startup</li>
+							<li class="url"><a href="http://demo.fuviz.com/reen">demo.fuviz.com/reen</a></li>
+						</ul><!-- /.item-details -->
+					</header>
+				</div><!-- /.col -->
+				
+			</div><!-- /.row -->
 
-<% if @product.default_image %>
-  <%= image_tag @product.default_image.path, :width => '200px', :style => "float:right" %>
-<% end %>
+			<div class="row">
+				<p><%= link_to "Back to list", root_path %></p>
+			</div>
+		</div><!-- /.container -->
+		
+	</section>
+	
+	<!-- ============================================================= SECTION – PORTFOLIO POST : END ============================================================= -->
+	
+	
+	
+	<!-- ============================================================= SECTION – SHARE ============================================================= -->
+	
+	<section id="share" class="light-bg">
+		<div class="container">
+			
+			<div class="col-sm-4 reset-padding">
+				<a href="#" class="btn-share-md">
+					<p class="name">Facebook</p>
+					<i class="icon-s-facebook"></i>
+					<p class="counter">1080</p>
+				</a>
+			</div><!-- /.col -->
+			
+			<div class="col-sm-4 reset-padding">
+				<a href="#" class="btn-share-md">
+					<p class="name">Twitter</p>
+					<i class="icon-s-twitter"></i>
+					<p class="counter">1263</p>
+				</a>
+			</div><!-- /.col -->
+			
+			<div class="col-sm-4 reset-padding">
+				<a href="#" class="btn-share-md">
+					<p class="name">Google +</p>
+					<i class="icon-s-gplus"></i>
+					<p class="counter">963</p>
+				</a>
+			</div><!-- /.col -->
+			
+		</div><!-- /.container -->
+	</section>
+	
+	<!-- ============================================================= SECTION – SHARE : END ============================================================= -->
+	
+</main>
 
-<p><%= @product.short_description %></p>
-<p>
-  <b><%= number_to_currency @product.price %></b>
-  <%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
-</p>
-
-<hr>
-<%= simple_format @product.description %>
-<hr>
-
-<p><%= link_to "Back to list", root_path %></p>
+<!-- ============================================================= MAIN : END ============================================================= -->
